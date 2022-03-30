@@ -1,20 +1,23 @@
 import './StoryCard.scss';
 
 
-const StoryCard = ({ size = 'm', title, imgSrc, body }) => (
-    <article className={`story-card-${size}`}>
-        {imgSrc &&
-            <img className='story-card-img' src={imgSrc} />
+const StoryCard = ({ size = 'l', title, imgSrc, body }) => (
+    <article className={`story-card story-card-${size}`}>
+        {(imgSrc && size !=='s') &&
+            <img className={`story-card-img-${size}`} src={imgSrc} />
 
         }
+        <div className='story-card-content'>
         {title &&
             <div className='story-card-title' >{title}
             </div>
         }
-        {body &&
+        {(body && size==='l' || size ==='xl') &&
             <div className='story-card-body' >{body}
             </div>
         }
+
+</div>
     </article>
 );
 

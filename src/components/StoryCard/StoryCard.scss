@@ -1,0 +1,40 @@
+.story-card {
+    margin-bottom: 20px;
+    margin-right: 20px;
+    img{
+        width: 100%;
+        height: auto;
+        margin-bottom: -4px;
+    }
+    &.story-card-xl{
+        max-width: 500px;
+        //height: 300px;
+    }
+    &.story-card-l{
+        max-width: 333px;
+        //height: 200px;
+    
+    }
+    &.story-card-m{
+        max-width: 250px;
+    }
+    &.story-card-s{
+        max-width: 250px;
+        //min-height: 150px;
+        //height: 100px;
+        overflow: hidden;
+        .story-card-content{
+            height: 120px;
+        }
+    }
+    .story-card-content{
+        color:#fff;
+        background-color: #09357B;
+        height: 100px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        padding: 4px;
+        //position: relative;
+        //top:-10px;
+    }
+}

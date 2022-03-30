@@ -3,8 +3,7 @@
     height: 50px;
     background: #09357B;
     width: 100%;
-    justify-content: space-between;
-   
+    justify-content: space-between;  
    
     .logo{
         align-self: center;
@@ -12,6 +11,7 @@
         color: #fff;
         font-size: 30px;
         text-decoration: none;
+        cursor: pointer;
     }
     .search-bar{
         align-self:flex-end;
