@@ -1,0 +1,11 @@
+.title-bar{
+    display: flex;
+    justify-content: space-between;
+    .filter-btn-wrapper{
+        margin: 32px;
+        display: flex;
+        .story-filter{
+            margin-left: 16px;;
+        }
+    }
+}
