@@ -1,9 +1,8 @@
 import { combineReducers } from "redux";
-import homeReducer from "../reducers/homeReducer";
+import storiesReducer from "../reducers/storiesReducer";
 import bookmarkReducer from '../reducers/bookmarksReducer';
-export default combineReducers({
-    posts: homeReducer,
-    bookmarks: bookmarkReducer
-    
 
+export default combineReducers({
+    bookmarks: bookmarkReducer,
+    stories: storiesReducer
 });

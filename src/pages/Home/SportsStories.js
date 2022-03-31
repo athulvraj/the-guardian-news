@@ -6,9 +6,10 @@ const SportsStories = (props) => {
         <section className='sports-stories'>
             <h2>Sports</h2>
             <div className='display-flex flex-wrap justify-content-space-between'>
-                <StoryCard {...stories[5]} />
-                <StoryCard {...stories[6]} />
-                <StoryCard {...stories[7]} />
+            {stories.map((story, i) => (
+                    <StoryCard {...story} />
+                ))
+                }
             </div>
         </section>
     );

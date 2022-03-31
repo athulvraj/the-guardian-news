@@ -6,9 +6,10 @@ const LifeAndStyleStories = (props) => {
         <section className='lifeandstyle-stories'>
             <h2>Life and Style</h2>
             <div className='display-flex flex-wrap justify-content-space-between'>
-                <StoryCard {...stories[5]} />
-                <StoryCard {...stories[6]} />
-                <StoryCard {...stories[7]} />
+            {stories.map((story, i) => (
+                    <StoryCard {...story} />
+                ))
+                }
             </div>
         </section>
     );

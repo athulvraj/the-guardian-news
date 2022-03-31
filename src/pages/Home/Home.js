@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadTopStories } from './../../actions/HomeAction';
+import { loadHomeStories } from './../../actions/HomeAction';
 import './Home.scss';
 import Badge from '../../components/Badge/Badge';
 /*********** Sections********* */
@@ -11,37 +11,37 @@ import CultureStories from './CultureStories';
 import LifeAndStyleStories from './LifeAndStyleStories';
 //import thumbnail from '../../assets/Peaks Card Bg.png';
 
-
 const Home = () => {
-    let [topStories, setTopStories] = useState([]);
+    let [stories, setStories] = useState({});
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const selector = useSelector(state => state);
+    let _stories = selector.stories;
 
-    let posts = selector.posts;
     useEffect(() => {
-        dispatch(loadTopStories());
+        dispatch(loadHomeStories());
     }, [dispatch]);
 
-    const getFormattedPosts = (data) => {
+    const getFormattedPosts = (data = [], size) => {
         return data.map((item, i) => {
             let sizeArr = ['xl', 'm', 'm', 's', 's', 'l', 'l', 'l'];
             return ({
-                size: sizeArr[i],
+                size: size || sizeArr[i],
                 title: item.webTitle,
-                imgSrc: item?.fields?.thumbnail/*  || thumbnail*/, 
+                imgSrc: item?.fields?.thumbnail/*  || thumbnail*/,
                 body: item?.fields?.trailText,
                 url: item.webUrl
             })
         })
     }
     useEffect(() => {
-        setTopStories(getFormattedPosts(posts));
+        setStories(_stories);
+    }, [_stories]);
 
-    }, [posts])
     const onSelectFilterCallback = (orderBy) => {
-        dispatch(loadTopStories({orderBy }));
+        dispatch(loadHomeStories({ orderBy }));
     }
+    
     return (
         <section className='home'>
             <section>
@@ -50,13 +50,11 @@ const Home = () => {
                     onSelectFilterCallback={onSelectFilterCallback}
                     title='Top Stories'
                 />
-                <TopStories stories={topStories}/>
-                <SportsStories stories={topStories}/>
-                <CultureStories stories={topStories}/>
-                <LifeAndStyleStories stories={topStories}/>
+                <TopStories stories={getFormattedPosts(stories.top)} />
+                <SportsStories stories={getFormattedPosts(stories.sport, 'l')} />
+                <CultureStories stories={getFormattedPosts(stories.culture, 'l')} />
+                <LifeAndStyleStories stories={getFormattedPosts(stories.lifeandstyle, 'l')} />
             </section>
-
-
         </section>
     );
 }

@@ -1,4 +1,4 @@
-import initialState from "../config/initialState"
+import initialState from "../config/initialState";
 
 const bookmarkReducer = (state = initialState.bookmarks, actionCreator) =>{
 switch(actionCreator.type){

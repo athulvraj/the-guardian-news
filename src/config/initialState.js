@@ -1,5 +1,10 @@
 const initialState =  {
-    posts: [],
-    bookmarks :[]
+    bookmarks :[],
+    stories: {
+        top: [],
+        sport:[],
+        culture: [],
+        lifeandstyle: []
+    }
 }
 export default initialState;
