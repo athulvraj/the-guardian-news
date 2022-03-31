@@ -7,7 +7,7 @@ const LifeAndStyleStories = (props) => {
             <h2>Life and Style</h2>
             <div className='display-flex flex-wrap justify-content-space-between'>
             {stories.map((story, i) => (
-                    <StoryCard {...story} />
+                    <StoryCard {...story}  key={story.id+String(i)} />
                 ))
                 }
             </div>

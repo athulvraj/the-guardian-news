@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
 import storiesReducer from "../reducers/storiesReducer";
 import bookmarkReducer from '../reducers/bookmarksReducer';
+import articlesReducer from "../reducers/articlesReducer";
 
 export default combineReducers({
     bookmarks: bookmarkReducer,
-    stories: storiesReducer
+    stories: storiesReducer,
+    articles: articlesReducer
 });

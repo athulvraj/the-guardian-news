@@ -12,11 +12,12 @@
 
         .story-filter {
             margin-left: 16px;
-            border-bottom: 1px solid #000;
+            
 
             select {
                 border: none;
-                width: 150px;
+                width: 180px;
+                border-bottom: 1px solid #000;
                 &:focus-visible{
                     border:none;
                 }
@@ -24,12 +25,5 @@
         }
     }
 
-    .bookmark-btn {
-        background-color: #09357B;
-        color: #fff;
-        border: none;
-        padding: 5px 12px;
-        border-radius: 4px;
-        cursor: pointer;
-    }
+    
 }

@@ -5,6 +5,9 @@ const initialState =  {
         sport:[],
         culture: [],
         lifeandstyle: []
+    },
+    articles: {
+        
     }
 }
 export default initialState;
