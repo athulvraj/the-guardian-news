@@ -1,10 +1,17 @@
 .header{
     display: flex;
     height: 50px;
-    background: #09357B;
+    background: #0d47a1;//#09357B;
     width: 100%;
-    justify-content: space-between;  
-   
+    justify-content: space-between;      
+    .header-wrapper{
+        max-width: 1300px;
+    }
+   .logo-img{
+        max-height: 90%;
+        padding: 5px;
+        margin: 0 50px 0 50px;
+   }
     .logo{
         align-self: center;
         margin: 0 50px 0 50px;

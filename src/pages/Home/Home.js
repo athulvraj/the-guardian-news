@@ -14,7 +14,7 @@ const Home = (props) => {
     let posts = selector.posts;
     useEffect(() => {
         dispatch(loadTopStories());
-    }, [])
+    }, [dispatch])
     const getFormattedPosts = (data) => {
         return data.map((item, i) => {
             let sizeArr = ['xl', 'm', 'm', 's', 's', 'l', 'l', 'l'];

@@ -4,7 +4,7 @@ import './BusyIndicator.scss';
 const BusyIndicator = () => (
    
         <div id='busy-indicator'>
-            <img src={image} />
+            <img src={image} alt='busy indicator'/>
         </div>
        
 );
