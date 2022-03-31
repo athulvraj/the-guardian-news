@@ -1,6 +1,6 @@
 import './Footer.scss'
 const Footer = () =>(<footer className='footer'>
-    The Peaks
+    The Peaks  by @athulvraj
 </footer>);
 
 export default Footer;
