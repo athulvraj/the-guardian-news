@@ -4,7 +4,7 @@ import logo from '../../assets/peaks logo.png';
 const Header = () => (
     <header className='header'>
         <div className='header-wrapper'>
-            <a href='/home'>
+            <a href='/'>
                 <img className='logo-img' src={logo} alt='logo' />
             </a>
             <SearchBar />
