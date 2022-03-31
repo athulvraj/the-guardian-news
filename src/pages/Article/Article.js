@@ -25,7 +25,7 @@ const Home = () => {
 
     useEffect(() => {
         setArticle(articles[id]);
-    }, [articles]);
+    }, [articles, id]);
 
     return (
         <section className='home article'>

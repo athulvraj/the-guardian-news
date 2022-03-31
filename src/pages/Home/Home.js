@@ -1,45 +1,39 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadHomeStories /* , loadArticle */} from './../../actions/HomeAction';
+import { loadHomeStories } from './../../actions/HomeAction';
 import './Home.scss';
 import Badge from '../../components/Badge/Badge';
+import { getFormattedPosts } from '../../services/StoryService';
 /*********** Sections********* */
 import TopStories from './TopStories';
-import SportsStories from './SportsStories';
-import CultureStories from './CultureStories';
-import LifeAndStyleStories from './LifeAndStyleStories';
-//import thumbnail from '../../assets/Peaks Card Bg.png';
+import Stories from '../../components/Stories/Stories';
 
 const Home = () => {
     let [stories, setStories] = useState({});
     let [searchMode, setSearchMode] = useState(false);
+    let [searchKey, setSearchKey] = useState('');
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const location = useLocation();
     const selector = useSelector(state => state);
     let _stories = selector.stories;
-    //let articles = selector.articles;
-    useEffect(() => {
-        dispatch(loadHomeStories());
-    }, [dispatch]);
+    let searchStories = selector.searchStories;
 
-    const onStoryClick = (id) => {
-        navigate('/article?id='+id);
-    }
-    const getFormattedPosts = (data = [], size) => {
-        return data.map((item, i) => {
-            let sizeArr = ['xl', 'm', 'm', 's', 's', 'l', 'l', 'l'];
-            return ({
-                size: size || sizeArr[i],
-                title: item.webTitle,
-                imgSrc: item?.fields?.thumbnail/*  || thumbnail*/,
-                body: item?.fields?.trailText,
-                url: item.webUrl,
-                id: item.id,
-                onClick: onStoryClick
-            })
-        })
-    }
+    useEffect(() => {
+        let urlSearchParams = new URLSearchParams(location.search);
+        let key = urlSearchParams.get('search');
+        if (key?.length > 0) {
+            setSearchMode(true);
+            setSearchKey(key);
+        } else {
+            setSearchMode(false);
+            dispatch(loadHomeStories());
+            setSearchMode(false);
+            setSearchKey('');
+        }
+    }, [dispatch, searchMode, searchKey, location.search]);
+
     useEffect(() => {
         setStories(_stories);
     }, [_stories]);
@@ -57,12 +51,13 @@ const Home = () => {
                     title={searchMode ? 'Search Result' : 'Top Stories'}
                 />
                 {searchMode ?
-                    <TopStories stories={getFormattedPosts(stories.top)} /> :
+                <Stories stories={getFormattedPosts(searchStories, 'l')} />
+                   :
                     <>
                         <TopStories stories={getFormattedPosts(stories.top)} />
-                        <SportsStories stories={getFormattedPosts(stories.sport, 'l')} />
-                        <CultureStories stories={getFormattedPosts(stories.culture, 'l')} />
-                        <LifeAndStyleStories stories={getFormattedPosts(stories.lifeandstyle, 'l')} />
+                        <Stories stories={getFormattedPosts(stories.sport, 'l')} title='Sports' />
+                        <Stories stories={getFormattedPosts(stories.culture, 'l')} title='Culture' />
+                        <Stories stories={getFormattedPosts(stories.lifeandstyle, 'l')} title='Life and Style' />
                     </>
                 }
             </section>

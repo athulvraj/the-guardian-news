@@ -6,8 +6,7 @@ const initialState =  {
         culture: [],
         lifeandstyle: []
     },
-    articles: {
-        
-    }
+    articles: {},
+    searchStories: []
 }
 export default initialState;

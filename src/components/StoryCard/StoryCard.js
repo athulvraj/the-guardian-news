@@ -1,4 +1,5 @@
 import './StoryCard.scss';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import thumbnail from '../../assets/Peaks Card Bg.png';
 
@@ -7,8 +8,9 @@ const StoryCard = ({ size = 'l', title, imgSrc = thumbnail, body, onClick, id })
     const isImageLoaded = () => {
         setImageLoaded(true);
     }
+    const navigate= useNavigate();
     return (
-        <article className={`story-card story-card-${size}`} onClick={() => onClick(id)}>
+        <article className={`story-card story-card-${size}`} onClick={() =>  navigate('/article?id='+id)}>
             {(!imageLoaded && size !== 's') &&
                 <img className={`story-card-img-${size}`} src={thumbnail} alt='thumbnail' />
             }
