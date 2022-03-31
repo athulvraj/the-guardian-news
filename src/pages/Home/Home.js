@@ -5,7 +5,8 @@ import { loadTopStories } from './../../actions/HomeAction';
 import './Home.scss';
 import Badge from '../../components/Badge/Badge';
 import StoryCard from '../../components/StoryCard/StoryCard';
-const Home = (props) => {
+//import thumbnail from '../../assets/Peaks Card Bg.png';
+const Home = () => {
     let [topStories, setTopStories] = useState([]);
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -14,14 +15,15 @@ const Home = (props) => {
     let posts = selector.posts;
     useEffect(() => {
         dispatch(loadTopStories());
-    }, [dispatch])
+    }, [dispatch]);
+
     const getFormattedPosts = (data) => {
         return data.map((item, i) => {
             let sizeArr = ['xl', 'm', 'm', 's', 's', 'l', 'l', 'l'];
             return ({
                 size: sizeArr[i],
                 title: item.webTitle,
-                imgSrc: item?.fields?.thumbnail,
+                imgSrc: item?.fields?.thumbnail/*  || thumbnail*/, 
                 body: item?.fields?.trailText,
                 url: item.webUrl
             })
@@ -31,13 +33,15 @@ const Home = (props) => {
         setTopStories(getFormattedPosts(posts));
 
     }, [posts])
-
+    const onSelectFilterCallback = (orderBy) => {
+        dispatch(loadTopStories({orderBy }));
+    }
     return (
         <section className='home'>
             <section>
                 <Badge buttonText='VIEW BOOKMARK'
                     onButtonClick={() => navigate('/bookmarks')}
-                    onSelectFilterCallback={(e) => console.log(e)}
+                    onSelectFilterCallback={onSelectFilterCallback}
                     title='Top Stories'
                 />
                 {topStories.length > 0 &&

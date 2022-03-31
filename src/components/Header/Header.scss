@@ -1,18 +1,23 @@
-.header{
-    display: flex;
+.header {
     height: 50px;
-    background: #0d47a1;//#09357B;
+    background: #0d47a1; //#09357B;
     width: 100%;
-    justify-content: space-between;      
-    .header-wrapper{
+    .header-wrapper {
+        display: flex;
         max-width: 1300px;
+        height: 50px;
+        justify-content: space-between;
+        margin-left: auto;
+        margin-right: auto;
     }
-   .logo-img{
+
+    .logo-img {
         max-height: 90%;
         padding: 5px;
         margin: 0 50px 0 50px;
-   }
-    .logo{
+    }
+
+    .logo {
         align-self: center;
         margin: 0 50px 0 50px;
         color: #fff;
@@ -20,8 +25,9 @@
         text-decoration: none;
         cursor: pointer;
     }
-    .search-bar{
-        align-self:flex-end;
+
+    .search-bar {
+        align-self: flex-end;
         margin: 0 50px 0 50px;
     }
 }

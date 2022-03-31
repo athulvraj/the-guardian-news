@@ -1,12 +1,17 @@
-import { get } from "../services/FetchService"
+import { get } from "../services/FetchService";
+import appSettings from "../config/appSettings";
+
 const DISPATCH_LOAD_TOP_STORIES = (payload) => ({
     type: 'LOAD_TOP_STORIES',
         payload
 });
 
-export const loadTopStories = () => (dispatch, getState) => {
+export const loadTopStories = (options = {}) => (dispatch, getState) => {
+    let orderBy = options.orderBy || 'newest';
+    let pageSize = options.pageSize || 8;
+    let {API_BASE_URL, API_KEY } = appSettings; 
     get({
-        url: 'https://content.guardianapis.com/search?show-elements=image&api-key=cdd1c199-f801-45ee-89eb-d62653ade981&show-fields=trailText,thumbnail&page-size=8'
+        url: `${API_BASE_URL}/search?order-by=${orderBy}&show-elements=image&api-key=${API_KEY}&show-fields=trailText,thumbnail&page-size=${pageSize}`
     }).then(results => {        
         if (results?.response?.status === 'ok') {
             dispatch(DISPATCH_LOAD_TOP_STORIES(results.response.results))
