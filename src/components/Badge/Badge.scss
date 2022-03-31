@@ -1,6 +1,7 @@
 .title-bar {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     h1{
         font-size: 36px;
         margin: 16px 0 0 0;
@@ -16,6 +17,9 @@
             select {
                 border: none;
                 width: 150px;
+                &:focus-visible{
+                    border:none;
+                }
             }
         }
     }
