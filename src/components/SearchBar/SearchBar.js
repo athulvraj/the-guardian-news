@@ -1,44 +1,54 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './SearchBar.scss';
-import { useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { searchStories } from '../../actions/HomeAction';
 import { useNavigate } from 'react-router-dom';
-
+import useDebounce from '../../hooks/useDebounce'
 const SearchBar = () => {
     let [showSearch, setShowSearch] = useState(false);
-    let [searchKey, setSearchKey] = useState('');
+    let [searchKey, setSearchKey] = useState(null);
+    const debouncedSearchTerm = useDebounce(searchKey, 750);
     let searchBoxRef = useRef(null);
-    const dispatch =useDispatch();
+
+    const dispatch = useDispatch();
     const navigate = useNavigate();
+
     const onSearchBtnClick = (e) => {
         setShowSearch(true);
         if (showSearch) {
             console.log(searchKey);
         }
     }
-    //TODO:: Implement Debouncing search
+
     const onSearchInputChange = (e) => {
         let value = e.target.value;
         setSearchKey(value);
         if (value === '') {
-            setShowSearch(false)
+            setShowSearch(false);
+            navigate('/home');
         }
-        dispatch(searchStories({ orderBy :'newest', pageSize:10, q:value , navigate}))
     }
+
     const handleClickOutside = (e) => {
         if (searchBoxRef.current && !searchBoxRef.current.contains(e.target)) {
             setShowSearch(false);
         }
     };
+
     useEffect(() => {
         if (showSearch) {
             document.addEventListener('mousedown', handleClickOutside);
         }
     }, [showSearch]);
 
+    useEffect(() => {
+        if (debouncedSearchTerm ) {
+            dispatch(searchStories({ orderBy: 'newest', pageSize: 10, q: debouncedSearchTerm, navigate }));
+        }
+    }, [debouncedSearchTerm]);
+
     return (
         <div className='search-bar' >
-
             <div className={`search-enabled ${showSearch ? 'search-bg' : ''}`} onClick={onSearchBtnClick}>
                 {showSearch &&
                     <input ref={searchBoxRef}

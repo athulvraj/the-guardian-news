@@ -1,12 +1,11 @@
 .search-bar {
-    .search-enabled {
-        
-        padding: 5px 10px;
+    .search-enabled {        
         border-bottom: 3px solid #fff;
         &.search-bg{
             background: #ffffff1f;
         }
         input {
+            padding: 5px 10px;
             border: none;
             color: #fff;
             width: 250px;
@@ -20,11 +19,11 @@
                 outline: none;
             }
         }
-        button{
-            //text-indent: -999px;
+        button{            
             overflow: hidden;
             width: 75px;
-            height: 20px;
+            height: 36px;
+            vertical-align: middle;
             padding: 0;
             margin: 0;            
             border: 1px solid transparent;
