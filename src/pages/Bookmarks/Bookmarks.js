@@ -19,8 +19,11 @@ const Bookmarks = () => {
         <section className='home article'>
              <h1>All Bookmarks</h1>
             <section>
-               
-                <Stories stories={bookmarks}></Stories>
+               {bookmarks.length>0 ?
+               <Stories stories={bookmarks}></Stories> :
+               <div>No Bookmarks added yet</div>
+               }
+                
             </section>
         </section>
     );
