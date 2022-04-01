@@ -9,7 +9,7 @@ export default function useDebounce(searchKey, delay) {
         return () => {
             clearTimeout(timeOut);
         };
-    }, [searchKey]);
+    }, [searchKey, delay]);
 
     return debounceSearchKey;
 }

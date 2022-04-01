@@ -45,7 +45,7 @@ const SearchBar = () => {
         if (debouncedSearchTerm ) {
             dispatch(searchStories({ orderBy: 'newest', pageSize: 10, q: debouncedSearchTerm, navigate }));
         }
-    }, [debouncedSearchTerm]);
+    }, [debouncedSearchTerm, dispatch, navigate]);
 
     return (
         <div className='search-bar' >
