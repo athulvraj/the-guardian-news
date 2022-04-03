@@ -4,18 +4,18 @@ const TopStories = (props) => {
     return (
         topStories.length > 0 &&
         <section className='top-stories'>
-            <div className='display-flex flex-wrap'>
+            <div className='row-1'>
                 <StoryCard {...topStories[0]} />
-                <div className='display-flex-column'>
+                <div className='row-1-col-2'>
                     <StoryCard {...topStories[1]} />
                     <StoryCard {...topStories[3]} />
                 </div >
-                <div className='display-flex-column'>
+                <div className='row-1-col-3'>
                     <StoryCard {...topStories[2]} />
                     <StoryCard {...topStories[4]} />
                 </div>
             </div>
-            <div className='display-flex flex-wrap justify-content-space-between'>
+            <div className='row-2' >
                 <StoryCard {...topStories[5]} />
                 <StoryCard {...topStories[6]} />
                 <StoryCard {...topStories[7]} />

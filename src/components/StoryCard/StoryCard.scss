@@ -11,13 +11,10 @@
 
     &.story-card-xl {
         max-width: 500px;
-        //height: 300px;
     }
 
     &.story-card-l {
         max-width: 333px;
-        //height: 200px;
-
     }
 
     &.story-card-m {
@@ -26,8 +23,6 @@
 
     &.story-card-s {
         max-width: 250px;
-        //min-height: 150px;
-        //height: 100px;
         overflow: hidden;
 
         .story-card-content {
@@ -49,19 +44,19 @@
     }
 
     &.border-bottom-red {
-        border-bottom:3px solid red;
+        border-bottom: 3px solid red;
     }
 
     &.border-bottom-green {
-        border-bottom:3px solid green;
+        border-bottom: 3px solid green;
     }
 
     &.border-bottom-blue {
-        border-bottom:3px solid blue;
+        border-bottom: 3px solid blue;
     }
 
     &.border-bottom-yellow {
-        border-bottom:3px solid yellow;
+        border-bottom: 3px solid yellow;
     }
 
     &.border-bottom-orange {
@@ -69,10 +64,25 @@
     }
 
     &.border-bottom-grey {
-        border-bottom:3px solid grey;
+        border-bottom: 3px solid grey;
     }
 
     &.border-bottom-violet {
-        border-bottom:3px solid violet;
+        border-bottom: 3px solid violet;
     }
+}
+
+@media screen and (max-width:720px) {
+    .story-card {
+
+        &.story-card-xl,
+        &.story-card-l,
+        &.story-card-m,
+        &.story-card-s {
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
 }

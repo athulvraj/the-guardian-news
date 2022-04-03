@@ -8,6 +8,7 @@ import { getFormattedPosts } from '../../services/StoryService';
 /*********** Sections********* */
 import TopStories from './TopStories';
 import Stories from '../../components/Stories/Stories';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     let [stories, setStories] = useState({});
@@ -51,16 +52,16 @@ const Home = () => {
                     title={searchMode ? 'Search Result' : 'Top Stories'}
                 />
                 {searchMode ?
-                <Stories stories={getFormattedPosts(searchStories, 'l')} />
-                   :
+                    <Stories stories={getFormattedPosts(searchStories, 'l')} />
+                    :
                     <>
                         <TopStories stories={getFormattedPosts(stories.top)} />
                         <Stories stories={getFormattedPosts(stories.sport, 'l')} title='Sports' />
-                        <a className='viewMoreLink'  href='/sports' onClick={()=>{}}>View More</a>
+                        <Link className='viewMoreLink' to='/sports'>View More</Link>
                         <Stories stories={getFormattedPosts(stories.culture, 'l')} title='Culture' />
-                        <a className='viewMoreLink'  href='/culture' onClick={()=>{}}>View More</a>
+                        <Link className='viewMoreLink' to='/culture'>View More</Link>
                         <Stories stories={getFormattedPosts(stories.lifeandstyle, 'l')} title='Life and Style' />
-                        <a className='viewMoreLink'  href='/lifeandstyle' onClick={()=>{}}>View More</a>
+                        <Link className='viewMoreLink' to='/lifeandstyle' >View More</Link>
                     </>
                 }
             </section>
