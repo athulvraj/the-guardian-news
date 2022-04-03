@@ -18,6 +18,7 @@ const SectionStory = ({ title, section }) => {
         } else {
             setTiles(sectionStories)
         }
+        window.scrollTo(0,0);
     }, [sectionStories, section, dispatch]);
 
     const onSelectFilterCallback = (orderBy) => {

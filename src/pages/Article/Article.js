@@ -43,6 +43,7 @@ const Home = () => {
 
     useEffect(() => {
         setArticle(articles[id]);
+        window.scrollTo(0,0);
     }, [articles, id]);
 
     return (
