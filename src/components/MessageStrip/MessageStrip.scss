@@ -1,0 +1,16 @@
+.message-strip{
+    height: 30px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+   color: #fff;
+   font-size: 14px;
+  padding-top: 8px;
+    text-align: center;    
+    &.type-success{
+        background: green;
+    }
+    &.type-error{
+        background: red;
+    }
+}

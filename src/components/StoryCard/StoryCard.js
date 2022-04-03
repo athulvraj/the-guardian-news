@@ -9,8 +9,12 @@ const StoryCard = ({ size = 'l', title, imgSrc = thumbnail, body, onClick, id })
         setImageLoaded(true);
     }
     const navigate= useNavigate();
+    const getRandomCardColorClassName = () =>{
+        let colors = ['red', 'green','blue', 'yellow','orange', 'grey', 'violet'];
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
     return (
-        <article className={`story-card story-card-${size}`} onClick={() =>  navigate('/article?id='+id)}>
+        <article className={`story-card story-card-${size} border-bottom-${getRandomCardColorClassName()}` } onClick={() =>  navigate('/article?id='+id)}>
             {(!imageLoaded && size !== 's') &&
                 <img className={`story-card-img-${size}`} src={thumbnail} alt='thumbnail' />
             }

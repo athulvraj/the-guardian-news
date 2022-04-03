@@ -2,41 +2,77 @@
     margin-bottom: 20px;
     margin-right: 20px;
     cursor: pointer;
-    img{
+
+    img {
         width: 100%;
         height: auto;
         margin-bottom: -4px;
     }
-    &.story-card-xl{
+
+    &.story-card-xl {
         max-width: 500px;
         //height: 300px;
     }
-    &.story-card-l{
+
+    &.story-card-l {
         max-width: 333px;
         //height: 200px;
-    
+
     }
-    &.story-card-m{
+
+    &.story-card-m {
         max-width: 250px;
     }
-    &.story-card-s{
+
+    &.story-card-s {
         max-width: 250px;
         //min-height: 150px;
         //height: 100px;
         overflow: hidden;
-        .story-card-content{
+
+        .story-card-content {
             height: 120px;
         }
     }
-    .story-card-content{
-        color:#fff;
+
+    .story-card-content {
+        color: #fff;
         background-color: #09357B;
         height: 100px;
         text-overflow: ellipsis;
         overflow: hidden;
         padding: 4px;
-        .story-card-body{
+
+        .story-card-body {
             font-size: 12px;
         }
+    }
+
+    &.border-bottom-red {
+        border-bottom:3px solid red;
+    }
+
+    &.border-bottom-green {
+        border-bottom:3px solid green;
+    }
+
+    &.border-bottom-blue {
+        border-bottom:3px solid blue;
+    }
+
+    &.border-bottom-yellow {
+        border-bottom:3px solid yellow;
+    }
+
+    &.border-bottom-orange {
+        border-bottom: 3px solid orange;
+    }
+
+    &.border-bottom-grey {
+        border-bottom:3px solid grey;
+    }
+
+    &.border-bottom-violet {
+        border-bottom:3px solid violet;
     }
 }

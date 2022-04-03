@@ -56,8 +56,11 @@ const Home = () => {
                     <>
                         <TopStories stories={getFormattedPosts(stories.top)} />
                         <Stories stories={getFormattedPosts(stories.sport, 'l')} title='Sports' />
+                        <a className='viewMoreLink'  href='/sports' onClick={()=>{}}>View More</a>
                         <Stories stories={getFormattedPosts(stories.culture, 'l')} title='Culture' />
+                        <a className='viewMoreLink'  href='/culture' onClick={()=>{}}>View More</a>
                         <Stories stories={getFormattedPosts(stories.lifeandstyle, 'l')} title='Life and Style' />
+                        <a className='viewMoreLink'  href='/lifeandstyle' onClick={()=>{}}>View More</a>
                     </>
                 }
             </section>
