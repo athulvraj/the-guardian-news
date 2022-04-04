@@ -9,7 +9,7 @@ const Stories = (props) => {
             {props.title &&
                 <h2>{props.title}</h2>
             }
-            <div className='display-flex flex-wrap '>
+            <div className='story'>
                 {stories.map((story, i) => (
                     <StoryCard {...story} key={story.id + String(i)} />
                 ))

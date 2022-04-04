@@ -2,6 +2,7 @@
     height: 50px;
     background: #0d47a1; //#09357B;
     width: 100%;
+
     .header-wrapper {
         display: flex;
         max-width: 1300px;
@@ -29,5 +30,17 @@
     .search-bar {
         align-self: flex-end;
         margin: 0 50px 0 50px;
+    }
+}
+
+@media screen and (max-width:720px) {
+    .header {
+        .logo-img {
+            margin: 0 10px 0 10px;
+        }
+
+        .search-bar {
+            margin: 0 10px 0 10px;
+        }
     }
 }

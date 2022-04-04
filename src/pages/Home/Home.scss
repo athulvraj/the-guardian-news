@@ -38,27 +38,36 @@
 }
 
 @media screen and (min-width:720px) and (max-width:1300px) {
-  .home{ 
-    
-    .top-stories {
+  .home {
 
-    .row-1,
-    .row-2 {
-      flex-wrap: nowrap;
+    .top-stories {
+      .story-card {
+        margin-bottom: 20px;
+        margin-right: 20px;
+
+        &.story-card-xl {
+          max-width: 500px;
+        }
+      }
+
+      .row-1,
+      .row-2 {
+        flex-wrap: nowrap;
+      }
     }
   }
-}
 }
 
 @media screen and (max-width:720px) {
-  .home{ 
+  .home {
     padding: 20px;
+
     .top-stories {
 
-    .row-1,
-    .row-2 {
-      display: block;
+      .row-1,
+      .row-2 {
+        display: block;
+      }
     }
   }
-}
 }

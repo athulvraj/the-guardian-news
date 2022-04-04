@@ -2,28 +2,54 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    h1{
+
+    h1 {
         font-size: 36px;
         margin: 16px 0 0 0;
     }
+
     .filter-btn-wrapper {
         margin: 32px;
         display: flex;
 
         .story-filter {
             margin-left: 16px;
-            
+
 
             select {
                 border: none;
                 width: 180px;
                 border-bottom: 1px solid #000;
-                &:focus-visible{
-                    border:none;
+
+                &:focus-visible {
+                    border: none;
                 }
             }
         }
     }
 
-    
+
+}
+
+@media screen and (max-width:720px) {
+    .title-bar {
+        h1 {
+            font-size: 36px;
+            margin: 0px 0 0 0;
+        }
+
+        .filter-btn-wrapper {
+            margin: 8px;
+
+            .story-filter {
+                margin-left: 16px;
+
+                select {
+
+                    width: auto;
+                    border-bottom: 1px solid #000;
+                }
+            }
+        }
+    }
 }
