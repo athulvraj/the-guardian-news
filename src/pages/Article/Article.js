@@ -4,8 +4,10 @@ import { loadArticle } from './../../actions/HomeAction';
 import BookmarkButton from '../../components/BookmarkButton/BookmarkButton';
 import MessageStrip from '../../components/MessageStrip/MessageStrip';
 import './Article.scss';
+import moment from 'moment';
 import { saveToStorage, retriveFromStorage, removeFromStorage } from '../../services/StorageUtils';
 import { getFormattedPosts } from '../../services/StoryService';
+
 const Home = () => {
     let [article, setArticle] = useState({});
     let [isBookmarked, setIsBookmarked] = useState(false);
@@ -51,7 +53,7 @@ const Home = () => {
             <section className='home article'>
                 <section>
                     <BookmarkButton onClick={onBookmark} >{isBookmarked ? 'Remove Bookmark' : 'Add Bookmark'}</BookmarkButton>
-                    <div>{article?.webPublicationDate}</div>
+                    <div className='date'>{moment(article?.webPublicationDate).format('llll')}</div>
                     <h1>{article?.webTitle}</h1>
                     <strong>{article?.trailText}</strong>
                     <div dangerouslySetInnerHTML={{ __html: article?.fields?.body }}></div>
