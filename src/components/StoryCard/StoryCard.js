@@ -8,13 +8,13 @@ const StoryCard = ({ size = 'l', title, imgSrc = thumbnail, body, onClick, id })
     const isImageLoaded = () => {
         setImageLoaded(true);
     }
-    const navigate= useNavigate();
-    const getRandomCardColorClassName = () =>{
-        let colors = ['red', 'green','blue', 'yellow','orange', 'grey', 'violet'];
+    const navigate = useNavigate();
+    const getRandomCardColorClassName = () => {
+        let colors = ['red', 'green', 'blue', 'yellow', 'orange', 'grey', 'violet'];
         return colors[Math.floor(Math.random() * colors.length)];
     }
     return (
-        <article className={`story-card story-card-${size} border-bottom-${getRandomCardColorClassName()}` } onClick={() =>  navigate('/article?id='+id)}>
+        <article className={`story-card story-card-${size} border-bottom-${getRandomCardColorClassName()}`} onClick={() => navigate('/article?id=' + id)}>
             {(!imageLoaded && size !== 's') &&
                 <img className={`story-card-img-${size}`} src={thumbnail} alt='thumbnail' />
             }
@@ -27,8 +27,7 @@ const StoryCard = ({ size = 'l', title, imgSrc = thumbnail, body, onClick, id })
                     </div>
                 }
                 {(body && (size === 'l' || size === 'xl')) &&
-                    <div className='story-card-body' >{body}
-                    </div>
+                    <div className='story-card-body' dangerouslySetInnerHTML={{ __html: body }}></div>
                 }
             </div>
         </article>
