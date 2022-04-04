@@ -4,12 +4,12 @@ To see this project live, please visit [https://the-peaks-athul.netlify.app](htt
 
 ## To run the app locally,
 
-Clone the repository and in the project directory, you can run:\
+Clone the repository and in the project directory, you can run:
 
 ### `npm install`
 
 This will install the required dependancies. \
-Now run the below command to Run the app in the development mode.\
+Now run the below command to Run the app in the development mode.
 ### `npm start`
 
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
