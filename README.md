@@ -1,4 +1,4 @@
-# The Peaks
+# The guardian News
 
 To see this project live, please visit [https://the-peaks-athul.netlify.app](https://the-peaks-athul.netlify.app)
 
